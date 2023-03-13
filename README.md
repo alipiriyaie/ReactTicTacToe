@@ -1,3 +1,7 @@
+# About this Project
+
+This project has been created for learning purposes. Every developer is welcome to contribute. The project is a very simple Tic Tac Toe game. Maybe we can make it the greatest Tic Tac Toe game of all time?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
