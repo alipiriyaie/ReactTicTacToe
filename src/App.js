@@ -68,6 +68,7 @@ export default function Game(){
   }
 
 
+
   return (
     <div className="game">
       <div className="game-board">
@@ -75,9 +76,27 @@ export default function Game(){
       </div>
       <div className="game-info">
         <div>You are at move #{currentMove}</div>
+        {currentMove > 0 ?
+          <UndoMove history={history} moves={moves} setHistory={setHistory} setCurrentMove={setCurrentMove} setMoves={setMoves}/> :
+          null
+        }
       </div>
     </div>
   );
+}
+
+function UndoMove({history, moves, setHistory, setCurrentMove, setMoves}){
+
+  function handleClick(){
+    const updatedHistory = history.slice(0, -1);
+    setHistory(updatedHistory);
+    setCurrentMove(updatedHistory.length - 1);
+    setMoves(moves.slice(0, -1));
+  }
+
+  return <>
+    <button onClick={handleClick}>Undo</button>
+  </>
 }
 
 function calculateWinner(squares){
